@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+{{- if eq .chezmoi.hostname "minira" }}
+yay -S --noconfirm --needed \
+    zsh \
+    bitwarden-cli \
+    vim \
+    ghq \
+    tig \
+{{- end }}
