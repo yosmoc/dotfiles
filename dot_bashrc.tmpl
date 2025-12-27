@@ -17,4 +17,17 @@ alias pbcopy='socat - UNIX-CLIENT:$HOME/.clipper.sock'
 alias g="git"
 alias t="tig"
 
+# functions
+function chpwd() { ls; }
+function setdefaulteditor() {
+  if [ "$TERM_PROGRAM" = "vscode" ]; then
+    export EDITOR="code -w"
+    export TIG_EDITOR="vscode-for-tig"
+  else
+    export EDITOR="vim"
+  fi
+}
+setdefaulteditor
+
+# exports
 export PATH="$HOME/bin:$PATH"
