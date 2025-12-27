@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ "$#" -eq 1 ]]; then
+    FILE="$1"
+    LINE=0
+    code --goto "$FILE":"$LINE"
+elif [[ "$#" -eq 2 ]]; then
+    # open file with line number
+    # remove the '+' prefix before line number
+    LINE=${1#+}
+    FILE="$2"
+    code --goto "$FILE":"$LINE"
+else
+    echo "Usage: $0 [+line] <file>" >&2
+    exit 1
+fi
