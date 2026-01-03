@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-{{- if eq .chezmoi.hostname "minira" }}
+{{- if eq .chezmoi.os "linux" }}
 yay -S --noconfirm --needed \
     zsh \
     bitwarden-cli \
@@ -11,4 +11,5 @@ yay -S --noconfirm --needed \
     pinact \
     go \
     tmux-plugin-manager \
+    ijq \
 {{- end }}
