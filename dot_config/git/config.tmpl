@@ -1,0 +1,26 @@
+[ghq]
+	root = ~/src
+[user]
+	name = {{ .user }}
+	email = {{ .email }}
+[commit]
+	verbose = true
+[rebase]
+	autostash = true
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[core]
+	compression = 4
+	excludesfile = ~/.config/git/ignore
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[pull]
+	autostash = true
+[rerere]
+	enabled = true
