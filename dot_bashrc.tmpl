@@ -29,5 +29,16 @@ function setdefaulteditor() {
 }
 setdefaulteditor
 
+function fzf-src () {
+  local selected_dir=$(ghq list --full-path | fzf --query "$READLINE_LINE")
+  if [ -n "$selected_dir" ]; then
+      cd "${selected_dir}"
+      clear
+  fi
+  READLINE_LINE=""
+  READLINE_POINT=0
+}
+bind -x '"\C-]": fzf-src'
+
 # exports
 export PATH="$HOME/bin:$PATH"
