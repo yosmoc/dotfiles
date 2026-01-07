@@ -11,5 +11,15 @@ yay -S --noconfirm --needed \
     pinact \
     go \
     tmux-plugin-manager \
-    ijq \
+    ijq
+{{- else if eq .chezmoi.os "darwin" }}
+brew install \
+    zsh \
+    bitwarden-cli \
+    vim \
+    ghq \
+    tig \
+    pinact \
+    go \
+    ijq
 {{- end }}
