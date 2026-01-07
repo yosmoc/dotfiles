@@ -10,11 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  apply:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
+  macos-test:
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
@@ -34,3 +31,13 @@ jobs:
       - name: Run chezmoi apply
         run: chezmoi apply
 
+  archlinux-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Setup and apply chezmoi
+        uses: ./.github/actions/setup-chezmoi
+        with:
+          repository: https://github.com/yosmoc/dotfiles.git

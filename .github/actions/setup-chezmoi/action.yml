@@ -1,0 +1,11 @@
+name: 'Chezmoi apply'
+description: 'Install chezmoi and run chezmoi apply'
+inputs:
+  repository:
+    description: 'Dotfiles repository URL'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository }}
