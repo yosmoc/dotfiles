@@ -1,5 +1,5 @@
-{{- $email := promptStringOnce . "email" "Email address" -}}
-{{- $user := promptStringOnce . "user" "User name" -}}
+{{- $email := or (env "CHEZMOI_EMAIL") (promptString "Email address") -}}
+{{- $user := or (env "CHEZMOI_USER") (promptString "User name") -}}
 
 [data]
     email = {{ $email | quote }}

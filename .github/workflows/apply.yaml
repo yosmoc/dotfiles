@@ -26,6 +26,9 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Initialize chezmoi
+        env:
+          CHEZMOI_EMAIL: "ci@example.com"
+          CHEZMOI_USER: "CI User"
         run: chezmoi init https://github.com/yosmoc/dotfiles.git
 
       - name: Run chezmoi apply
